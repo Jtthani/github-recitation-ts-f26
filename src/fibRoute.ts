@@ -1,12 +1,7 @@
 // Endpoint for querying the fibonacci numbers
 
 import { Request, Response } from "express";
-
-// fib.ts exports via `module.exports`, so TypeScript does not treat it as a
-// module and an `import` of it fails with TS2306. Keep require() and give the
-// value its real type here.
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const fibonacci = require("./fib") as (n: number) => number;
+import fibonacci from "./fib";
 
 export default (req: Request, res: Response): void => {
   const { num } = req.params;
